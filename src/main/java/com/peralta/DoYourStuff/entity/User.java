@@ -1,6 +1,7 @@
 package com.peralta.DoYourStuff.entity;
 
 
+import com.peralta.DoYourStuff.dtos.UserDTO;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -27,6 +28,11 @@ public class User {
     public User(String username, String password) {
         this.username = username;
         this.password = password;
+    }
+
+    public User(UserDTO userDTO) {
+        this.username = userDTO.username();
+        this.password = userDTO.password();
     }
 
     @Override
