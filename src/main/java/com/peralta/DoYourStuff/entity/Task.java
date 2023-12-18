@@ -15,25 +15,28 @@ import java.util.Date;
 public class Task {
 
     @Id
-    @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public int id;
+    @Column(name = "id")
+    private int id;
     @Column(name = "title")
-    public String title;
+    private String title;
     @Column(name = "description")
-    public String description;
+    private String description;
     @Column(name = "creation_date")
-    public Date creationDate;
+    private Date creationDate;
     @Column(name = "last_update_date")
-    public Date lastUpdateDate;
+    private Date lastUpdateDate;
     @Column(name = "limit_date_to_be_done")
-    public Date limitDateToBeDone;
+    private Date limitDateToBeDone;
     @ManyToOne
     @JoinColumn(name = "created_by")
-    public User createdBy;
+    private User createdBy;
     @ManyToOne
     @JoinColumn(name = "assigned_to")
-    public User assignedTo;
+    private User assignedTo;
+    @ManyToOne
+    @JoinColumn(name = "who_last_change")
+    private User whoLastChange;
 
     public Task(String title, String description) {
         this.title = title;
